@@ -17,18 +17,18 @@ candidate_id
 123
 */
 
-with CTE AS(
+with CTE AS
+(
 SELECT
 candidate_id,
 MAX(CASE WHEN skill='Python' then skill else NULL end) as skill1,
 MAX(CASE WHEN skill='Tableau' then skill else NULL end) as skill2,
 MAX(CASE WHEN skill='PostgreSQL' then skill else NULL end) as skill3
-
-
 FROM
 candidates
 GROUP BY
-candidate_id)
+candidate_id
+)
 
 SELECT candidate_id 
 FROM CTE 
