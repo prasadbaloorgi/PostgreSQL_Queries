@@ -5,20 +5,29 @@
      Sort the output by candidate ID in ascending order
 
   candidates Example Input:
-candidate_id	skill
-123	          Python
-123	          Tableau
-123	          PostgreSQL
-234	          R
-234	          PowerBI
-234	          SQL Server
-345	          Python
-345	          Tableau
+| candidate_id | skill       |
+|--------------|-------------|
+| 123          | Python      |
+| 123          | Tableau     |
+| 123          | PostgreSQL  |
+| 234          | R           |
+| 234          | PowerBI     |
+| 234          | SQL Server  |
+| 345          | Python      |
+| 345          | Tableau     |
+
 
 Example Output:
 candidate_id
 123
 */
+SELECT candidate_id
+FROM candidates
+WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+GROUP BY candidate_id
+HAVING COUNT(DISTINCT skill) = 3;
+
+###OR
 
 with CTE AS
 (
