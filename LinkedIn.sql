@@ -21,14 +21,16 @@ Example Output:
 candidate_id
 123
 */
+
+--Query 1
 SELECT candidate_id
 FROM candidates
 WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
 GROUP BY candidate_id
 HAVING COUNT(DISTINCT skill) = 3;
 
-###OR
 
+--Query 2
 with CTE AS
 (
 SELECT
@@ -41,7 +43,6 @@ candidates
 GROUP BY
 candidate_id
 )
-
 SELECT candidate_id 
 FROM CTE 
 WHERE skill1 = 'Python' 
