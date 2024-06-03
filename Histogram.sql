@@ -27,7 +27,7 @@ The query groups the users by the number of tweets they posted and displays the 
 */
 
 
-
+--Query
 SELECT bucket, 
        count(*) as users_num
 FROM
